@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,QAAQ,EAAE,iBAAiB;CAAG",
+    "sources": [
+        "../bulma/sass/helpers/overflow.sass"
+    ],
+    "names": [],
+    "file": "overflow.css"
+}

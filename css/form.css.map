@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../bulma/sass/elements/form.sass"
+    ],
+    "names": [],
+    "file": "form.css"
+}
