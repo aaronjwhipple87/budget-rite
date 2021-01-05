@@ -18,14 +18,17 @@ if(isset($_POST["submit"])){
         if ($sql->num_rows > 0) {
 
             //email content
+
+            $to = 'aaronjwhipple@gmail.com'
             $from = 'support@budgetrite.com';
             $subject = "Reset your Budget Rite Password";
             $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-            $reset_link = 'http://icarus.cs.weber.edu/~aw54652/web_4350/budget/reset_password.php?email=' . $_POST['email'];
+            // $reset_link = 'http://icarus.cs.weber.edu/~aw54652/web_4350/budget/reset_password.php?email=' . $_POST['email'];
+            $reset_link = 'https://budget-rite.herokuapp.com/reset_password.php?email=' . $_POST['email'];
             $message = '<p>Please click the following link to reset your password: <a href="' . $reset_link. '">Reset Password</a></p>';
 
 
-            mail($_POST['email'],$subject,$message,$headers);
+            mail($to,$subject,$message,$headers);
 
 
 
