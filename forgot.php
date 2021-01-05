@@ -39,18 +39,20 @@ if(isset($_POST["submit"])){
 
             if (mail($recipient, $subject, $message, $headers))
             {
-                echo "Message accepted";
+                $msg = "Message accepted";
+                echo "<script type='text/javascript'>alert('$msg');</script>";
             }
             else
             {
-                echo "Error: Message not accepted";
+                $msg = "Message  not accepted";
+                echo "<script type='text/javascript'>alert('$msg');</script>";
             }
 
 
 
 
-            $msg = 'Please check your email for reset link';
-            echo "<script type='text/javascript'>alert('$msg');</script>";
+            // $msg = 'Please check your email for reset link';
+            // echo "<script type='text/javascript'>alert('$msg');</script>";
             header( "Refresh:1; url=index.php");
 
         } else {
