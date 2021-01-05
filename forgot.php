@@ -19,17 +19,32 @@ if(isset($_POST["submit"])){
 
             //email content
 
-            $to = 'aaronjwhipple@gmail.com';
-            $from = 'support@budgetrite.com';
-            $subject = "Reset your Budget Rite Password";
-            $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-            // $reset_link = 'http://icarus.cs.weber.edu/~aw54652/web_4350/budget/reset_password.php?email=' . $_POST['email'];
-            $reset_link = 'https://budget-rite.herokuapp.com/reset_password.php?email=' . $_POST['email'];
-            $message = '<p>Please click the following link to reset your password: <a href="' . $reset_link. '">Reset Password</a></p>';
+            // $to = 'aaronjwhipple@gmail.com';
+            // $from = 'support@budgetrite.com';
+            // $subject = "Reset your Budget Rite Password";
+            // $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+            // // $reset_link = 'http://icarus.cs.weber.edu/~aw54652/web_4350/budget/reset_password.php?email=' . $_POST['email'];
+            // $reset_link = 'https://budget-rite.herokuapp.com/reset_password.php?email=' . $_POST['email'];
+            // $message = '<p>Please click the following link to reset your password: <a href="' . $reset_link. '">Reset Password</a></p>';
 
 
-            mail($to,$subject,$message,$headers);
+            // mail($to,$subject,$message,$headers);
 
+            $sender = 'aaronwhipple@mail.weber.edu';
+            $recipient = 'aaronjwhipple@gmail.com';
+
+            $subject = "php mail test";
+            $message = "php test message";
+            $headers = 'From:' . $sender;
+
+            if (mail($recipient, $subject, $message, $headers))
+            {
+                echo "Message accepted";
+            }
+            else
+            {
+                echo "Error: Message not accepted";
+            }
 
 
 
