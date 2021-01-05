@@ -19,7 +19,7 @@ if(isset($_POST["submit"])){
 
             //email content
 
-            $to = 'aaronjwhipple@gmail.com'
+            $to = 'aaronjwhipple@gmail.com';
             $from = 'support@budgetrite.com';
             $subject = "Reset your Budget Rite Password";
             $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
