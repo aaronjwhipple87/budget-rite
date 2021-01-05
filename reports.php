@@ -5,7 +5,7 @@ $msg = "";
 $curMonth = idate("m");
 $curYear = idate("Y");
 
-$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $curMonth, $curYear);
+$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $curMonth, 2020);
 //finds all budget names, amounts, and arithmetic to calculate remaining total.
 $sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, (plannedAmount - appliedAmount) as resultAmount
 FROM budgets
