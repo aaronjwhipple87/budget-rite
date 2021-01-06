@@ -1,6 +1,9 @@
 <?php
 include 'functions.php';
+require_once('PHPMailer\PHPMailerAutoload.php');
 $msg = "";
+
+
 
 if(isset($_POST["submit"])){
 
@@ -19,6 +22,23 @@ if(isset($_POST["submit"])){
 
             //email content
 
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = '465';
+            $mail->isHTML();
+            $mail->Username = 'awhiptesting@gmail.com';
+            $mail->Password = 'Inspiron1505$$$';
+            $mail->SetFrom('support@budgetrite.com');
+            $mail->Subject = 'Reset your Budget Rite Password';
+            $mail->Body = 'a test email';
+            $mail->AddAddress('aaronwhipple@mail.weber.edu');
+
+            $mail->Send();
+
+
             // $to = 'aaronjwhipple@gmail.com';
             // $from = 'support@budgetrite.com';
             // $subject = "Reset your Budget Rite Password";
@@ -30,29 +50,12 @@ if(isset($_POST["submit"])){
 
             // mail($to,$subject,$message,$headers);
 
-            $sender = 'aaronwhipple@mail.weber.edu';
-            $recipient = 'aaronjwhipple@gmail.com';
-
-            $subject = "php mail test";
-            $message = "php test message";
-            $headers = 'From:' . $sender;
-
-            if (mail($recipient, $subject, $message, $headers))
-            {
-                $msg = "Message accepted";
-                echo "<script type='text/javascript'>alert('$msg');</script>";
-            }
-            else
-            {
-                $msg = "Message  not accepted";
-                echo "<script type='text/javascript'>alert('$msg');</script>";
-            }
 
 
 
 
-            // $msg = 'Please check your email for reset link';
-            // echo "<script type='text/javascript'>alert('$msg');</script>";
+            $msg = 'Please check your email for reset link';
+            echo "<script type='text/javascript'>alert('$msg');</script>";
             header( "Refresh:1; url=index.php");
 
         } else {
