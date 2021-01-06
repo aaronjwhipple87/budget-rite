@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
             $mail->setFrom('support@budgetrite.com');
             $mail->addAddress('aaronwhipple@mail.weber.edu');
             $mail->isHTML(true);
-            
+            $mail->Send();
             
             $mail->Subject = 'Reset your Budget Rite Password';
             $mail->Body = 'a test email';
@@ -46,6 +46,7 @@ if(isset($_POST["submit"])){
             }
 
 
+            
 
 
             // $to = 'aaronjwhipple@gmail.com';
