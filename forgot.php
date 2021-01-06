@@ -1,6 +1,6 @@
 <?php
 include 'functions.php';
-require_once('PHPMailer\PHPMailerAutoload.php');
+require_once('PHPMailer/PHPMailerAutoload.php');
 $msg = "";
 
 
