@@ -28,7 +28,7 @@ if(isset($_POST["submit"])){
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';
             $mail->Username = 'awhiptesting@gmail.com';
-            $mail->Password = 'Inspiron1505$$$';
+            $mail->Password = '';
             $mail->setFrom('support@budgetrite.com');
             $mail->addAddress('aaronwhipple@mail.weber.edu');
             $mail->isHTML(true);
