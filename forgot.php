@@ -1,6 +1,6 @@
 <?php
 include 'functions.php';
-require_once('PHPMailer/PHPMailerAutoload.php');
+require 'PHPMailer/PHPMailerAutoload.php';
 $msg = "";
 
 
@@ -22,21 +22,30 @@ if(isset($_POST["submit"])){
 
             //email content
 
-            $mail = new PHPMailer();
-            $mail->isSMTP();
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'ssl';
+            $mail = new PHPMailer;
             $mail->Host = 'smtp.gmail.com';
-            $mail->Port = '465';
-            $mail->isHTML();
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
             $mail->Username = 'awhiptesting@gmail.com';
             $mail->Password = 'Inspiron1505$$$';
-            $mail->SetFrom('support@budgetrite.com');
+            $mail->setFrom('support@budgetrite.com');
+            $mail->addAddress('aaronwhipple@mail.weber.edu');
+            $mail->isHTML(true);
+            
+            
             $mail->Subject = 'Reset your Budget Rite Password';
             $mail->Body = 'a test email';
-            $mail->AddAddress('aaronwhipple@mail.weber.edu');
+            
+            if(!$mail->send()){
+                $msg = 'mail not sent';
+                echo "<script type='text/javascript'>alert('$msg');</script>";
+            }else{
+                $msg = 'mail sent successfully';
+                echo "<script type='text/javascript'>alert('$msg');</script>";
+            }
 
-            $mail->Send();
+
 
 
             // $to = 'aaronjwhipple@gmail.com';
@@ -54,8 +63,8 @@ if(isset($_POST["submit"])){
 
 
 
-            $msg = 'Please check your email for reset link';
-            echo "<script type='text/javascript'>alert('$msg');</script>";
+            // $msg = 'Please check your email for reset link';
+            // echo "<script type='text/javascript'>alert('$msg');</script>";
             header( "Refresh:1; url=index.php");
 
         } else {
