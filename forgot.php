@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
 
             //email content
 
-            $mail = new PHPMailer;
+            $mail = new PHPMailer();
             $mail->Host = 'smtp.gmail.com';
             $mail->Port = 587;
             $mail->SMTPAuth = true;
